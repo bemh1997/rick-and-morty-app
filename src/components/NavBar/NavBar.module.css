@@ -51,9 +51,6 @@
   height: 30px;
   margin: 0px 0px 30px;
   padding: 10px 25px;
-  &:hover{
-    scale: 1.2;
-  }
 }
 
 .button{
