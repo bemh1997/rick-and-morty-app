@@ -1,0 +1,88 @@
+.nav {
+  border-radius:  10px;
+  display: grid;
+  grid-template-areas: 
+  "logo"
+  "buttons"
+  "sidebar"
+  ;
+  align-items: center;
+  margin-right: 0;
+  /* padding: 15px 30px;
+  margin-bottom: 20px;
+  margin-top: -5px; */
+  padding: 10px;
+  text-align: left;
+  gap: 10px;
+  min-height: 100%;
+}
+
+
+/* 
+.navLink{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+} */
+
+.searchBar{
+  grid-area: sidebar;
+  text-align: right;
+  align-items: right;
+  margin-top: 100px;
+}
+
+.navButtons{
+  grid-area: buttons;
+  align-items: center;
+  text-align: center;
+}
+
+.logo{
+  grid-area: logo;
+  width: 300px;
+  margin: auto;
+}
+
+.button{
+  width: 120px;
+  height: 30px;
+  border: 2px solid #61de2a;
+  border-radius: 15px;
+  box-shadow: inset 0px 0px 6px 1px #61de2a;
+  background-color: rgba(255, 255, 255);
+  margin: 0px 0px 30px;
+  padding: 10px 25px;
+  font-size: 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  color: purple;
+
+  &:hover {
+    background-color: #2f362f;
+    color: #61de2a;
+    scale: 1.1;
+  }
+}
+
+@media(max-width: 900px) {
+  .nav {
+      grid-template-rows: 55% 20% 20%;
+      grid-template-areas: 
+      /* llamamos a grid-area de cada clase */
+      "logo"
+      "buttons"
+      "sidebar"
+      ;
+  }
+
+}
+
+@media (min-width: 900px) {
+  .nav{
+    grid-template-columns: 30% auto 30%;
+    grid-template-areas: 
+    "buttons logo sidebar"
+    ;
+  }
+}

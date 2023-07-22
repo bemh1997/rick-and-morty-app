@@ -1,0 +1,61 @@
+.divInfo{
+  padding-bottom: 20px;
+}
+
+.divImg{
+  margin-top: 10px;
+  padding: auto;
+}
+
+.divCard {
+  display: inline-block;
+  background-color: rgba( 72, 61, 139,0.5 );
+  border-radius: 10px;
+  color: white;
+  overflow: hidden;
+  margin: 15px 0;
+  max-width: 18.8rem;
+  width: 19%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 15px ;
+}
+
+.divCard img {
+  width: 80%;
+}
+
+.divCard h2{
+  color: white;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 30px;
+  border: 2px solid #61de2a;
+  border-radius: 15px;
+  box-shadow: inset 0px 0px 6px 1px #61de2a;
+  background-color: rgba(255, 255, 255);
+  margin: 5px 0 0 5px;
+  font-size: 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  color: purple; 
+
+  &:hover {
+      background-color: #2f362f;
+      color: #61de2a;
+      scale: 1.1;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .divCard{
+    width: 90%;
+  }
+}
