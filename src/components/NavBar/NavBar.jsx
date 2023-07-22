@@ -16,7 +16,7 @@ export default function NavBar(props){
           </Link>
           
           <Link to="/about" >
-            <span className={style.button}>About</span>
+            <span className={style.span}>About</span>
           </Link>
         </NavLink>
 

@@ -19,6 +19,17 @@ export const SearchInput = styled.input`
    box-sizing: border-box;
    box-shadow: inset 0px 0px 6px 1px #61de2a;
    font-size: 20px;
+   transition: all 0.2s ease;
+   cursor: auto;
+   color: purple;
+   font-size: 20px;
+   margin-right: 0.5px;
+
+   &:hover{
+      background-color: #2f362f;
+      color: #61de2a;
+      scale: 1.1;
+   }
 `
 
 export const SearchIcon = styled(MagnifyingGlass)`

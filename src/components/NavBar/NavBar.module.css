@@ -34,6 +34,8 @@
 
 .navButtons{
   grid-area: buttons;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   text-align: center;
 }
@@ -44,15 +46,29 @@
   margin: auto;
 }
 
-.button{
+.span{
   width: 120px;
   height: 30px;
+  margin: 0px 0px 30px;
+  padding: 10px 25px;
+  &:hover{
+    scale: 1.2;
+  }
+}
+
+.button{
+  width: 160px;
+  height: 51px;
+  margin: 15px 15px;
+  padding: 10px 25px;
+}
+
+.span, .button{
   border: 2px solid #61de2a;
   border-radius: 15px;
   box-shadow: inset 0px 0px 6px 1px #61de2a;
   background-color: rgba(255, 255, 255);
-  margin: 0px 0px 30px;
-  padding: 10px 25px;
+  
   font-size: 20px;
   transition: all 0.2s ease;
   cursor: pointer;
