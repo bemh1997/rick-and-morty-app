@@ -1,0 +1,88 @@
+.container{
+  margin-top: 2.8% ;
+  display: flex;
+  flex-direction: column;
+}
+
+.img{
+  width: 45%;
+}
+
+button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #61de2a;
+  border-radius: 15px;
+  box-shadow: 0px 0px 6px 1px #61de2a;
+  background-color: rgba(255, 255, 255);
+  margin: 0px 0px 30px;
+  padding: 10px 25px;
+  font-size: 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  color: purple;
+
+  &:hover{
+    background-color: #2f362f;
+    color: #61de2a;
+    scale: 1.1;
+  }
+}
+
+.input{
+  width: 30%;
+  padding: 12px 20px;
+  border: 2px solid #61de2a;
+  border-radius: 15px;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 6px 1px #61de2a;
+  background-color: rgba(255, 255, 255);
+  font-size: 20px;
+  transition: all 0.2s ease;
+  cursor: auto;
+  color: purple;
+  font-size: 20px;
+  margin-bottom: 10px;
+
+  &:hover{
+    background-color: #2f362f;
+    color: #61de2a;
+    scale: 1.1;
+  }
+}
+
+.danger{
+  text-align: center;
+  width: 19.9rem;;
+  border: 2px solid red;
+  border-radius: 15px;
+  box-shadow: inset 0px 0px 6px 1px red;
+  background-color: rgba(255, 255, 255);
+  padding: 10px 25px;
+  font-size: 20px;
+  transition: all 0.2s ease;
+  cursor: auto;
+  color: purple;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.emailContiner, .pswContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+ .input{
+  width: 90%
+ } 
+ 
+ .img{
+  width: 90%;
+ }
+
+ button{
+  width: 90%;
+ }
+}
