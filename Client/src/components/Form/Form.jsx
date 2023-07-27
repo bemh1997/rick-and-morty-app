@@ -55,13 +55,14 @@ export default function Form({login}){
               placeholder='Email'
               value={userData.email} 
               onChange={handleChange}
-            />
+            /><br />
             {
               errors.email ? (
                 <span className={style.danger}>{errors.email}</span>
               ) : null
             }
-          </div>
+            
+          </div><br />
           <div>
             <input 
               name='password'
@@ -70,13 +71,13 @@ export default function Form({login}){
               placeholder='Password'
               value={userData.password}
               onChange={handleChange}
-            />
+            /><br />
             {
               errors.password ? (
                 <span className={style.danger}>{errors.password}</span>
               ) : null
             }
-          </div>
+          </div><br />
           <button className={style.submit}> Submit </button>
         </form>
       </div>

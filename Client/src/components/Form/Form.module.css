@@ -1,11 +1,9 @@
 .container{
   margin-top: 2.8% ;
-  display: flex;
-  flex-direction: column;
 }
 
 .img{
-  width: 45%;
+  width: 32%;
 }
 
 button{
@@ -38,12 +36,11 @@ button{
   box-sizing: border-box;
   box-shadow: inset 0px 0px 6px 1px #61de2a;
   background-color: rgba(255, 255, 255);
-  font-size: 20px;
   transition: all 0.2s ease;
   cursor: auto;
   color: purple;
+  margin: 10px 10px;
   font-size: 20px;
-  margin-bottom: 10px;
 
   &:hover{
     background-color: #2f362f;
@@ -54,17 +51,16 @@ button{
 
 .danger{
   text-align: center;
-  width: 19.9rem;;
+  /* width: 1.9rem; */
   border: 2px solid red;
   border-radius: 15px;
   box-shadow: inset 0px 0px 6px 1px red;
   background-color: rgba(255, 255, 255);
   padding: 10px 25px;
-  font-size: 20px;
+  font-size: 11px;
   transition: all 0.2s ease;
   cursor: auto;
   color: purple;
-  font-size: 20px;
   margin-bottom: 10px;
 }
 

@@ -9,10 +9,14 @@ import { useState } from 'react';
 
 export default function SearchBar(props) {
    const { onSearch, random } = props;
-   const [id, setId ] = useState('')
+   const [id, setId] = useState('');
 
    const handleChange = (evento) => {
-      setId(evento.target.value)
+      setId(evento.target.value);
+   }
+
+   const handleSearch = () => {
+      onSearch(id);
    }
 
    return (
@@ -20,13 +24,13 @@ export default function SearchBar(props) {
          <SearchInput 
             type='text' 
             placeholder="Search character..." 
-            onChange= {handleChange}
+            value={id} // Aquí establecemos el valor del input con el estado 'id'
+            onChange={handleChange}
          />
          <SearchIconContainer>
-            <SearchIcon onClick={()=> onSearch(id)}/>
+            <SearchIcon onClick={handleSearch} />
          </SearchIconContainer>   
-         <RandomButton onClick={()=> random()} > Random </RandomButton>
-         
+         <RandomButton onClick={random} > Random </RandomButton>
       </SearchContainer>
    );
 }

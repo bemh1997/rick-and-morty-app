@@ -6,34 +6,38 @@ import Form from './components/Form/Form'
 import Error from './components/Error/Error'
 import NavBar from './components/NavBar/NavBar';
 import axios from 'axios';
-import { Routes, Route, useLocation, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate, useNavigate, Outlet } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
- 
+
 
 function App() {
    const [ characters, setCharacters ] = useState([]);
+   const [haveIt, setHaveIt] = useState([]);
    const [ access, setAccess ] = useState(false);
    const EMAIL = 'yosoyunpichu@gmail.com';
-   const PASSWORD = 'beto123';const navigate = useNavigate();
+   const PASSWORD = 'beto123';
+   const navigate = useNavigate();
+   const { pathname } = useLocation();
 
    const login = (userData) => {
-     if (userData.email === EMAIL && userData.password === PASSWORD) {
-       setAccess(true);
-       navigate('/home');
-     }
+      if (userData.email === EMAIL && userData.password === PASSWORD) {
+         setAccess(true);
+         navigate('/home');
+      }
    };
- 
+
    const logout = () => {
-     setAccess(false);
-     navigate('/');
+      setAccess(false);
+      navigate('/');
    };
- 
+
    useEffect(() => {
-     !access && navigate('/');
-   }, [access, navigate]);
+      if(pathname.includes('*') && !access)
+         navigate('/')
+   }, [access, pathname, navigate, ]);
    
    const onSearch = (id) =>{
-      axios(`https://rickandmortyapi.com/api/character/${id}`)
+      axios(`http://localhost:3001/rickandmorty/character/${id}`)
       .then(({ data }) => {
          const characterFind = characters.find((char) => char.id === Number(id))
          
@@ -51,26 +55,32 @@ function App() {
       })
    };
 
-   const randomHandler = () =>{
-      let haveIt = [];
-      let random = (Math.random() * 826).toFixed();
+   
+   
+   const randomHandler = () => {
+   let random = Math.floor(Math.random() * 826);
 
-      random = Number(random);
-      if(!haveIt.includes(random)){
-         fetch(`https://rickandmortyapi.com/api/character/${random}`)
+   if (!haveIt.includes(random)) {
+      fetch(`http://localhost:3001/rickandmorty/character/${random}`)
          .then((response) => response.json())
-         .then((data) =>{
-            if(data.name){
-               setCharacters((oldCharacter)=>[...oldCharacter,data]);
-            }else{
-               window.alert("Characters doesn't exist whit this ID");
-            }
+         .then((data) => {
+         if (data.name) {
+            setCharacters((oldCharacter) => [...oldCharacter, data]);
+            setHaveIt((oldHaveIt) => [...oldHaveIt, random]);
+         } else {
+            window.alert("Character doesn't exist with this ID");
+         }
+         })
+         .catch((error) => {
+            console.error("Error fetching character:", error);
          });
-      }else{
-         console.log("You alredy add this ID");
-         return false;
-      }
-   };
+   } else {
+      window.alert("You already added this ID");
+      return false;
+   }
+};
+
+    
 
    const onClose = (id) =>{
       setCharacters(
@@ -80,43 +90,40 @@ function App() {
        )
    };
 
-   const { pathname } = useLocation();
-
    return (
       <div className='App'>
-      {pathname.includes('/home') || pathname.includes('/about') || pathname.includes('/detail') ? (
-        <NavBar onSearch={onSearch} random={randomHandler} logout={logout} />
-      ) : null}
+        {(access && (pathname.includes('/home') ||
+            pathname.includes('/about') ||
+            pathname.includes('/detail')
+         ) ) && (
+          <NavBar onSearch={onSearch} random={randomHandler} logout={logout} />
+        )}
+  
+        <Routes>
+          {/* Ruta de la página principal */}
+          <Route
+            path='/home'
+            element={access ? <Cards characters={characters} onClose={onClose} /> : <Navigate to='/' />}
+          />
+  
+          {/* Ruta de la página "Acerca de" */}
+          <Route path='/about' element={access ? <About access = {access}/> : <Navigate to='/' />} />
+  
+          {/* Ruta de detalle de personaje */}
+          <Route path='/detail/:id' element={access ? <Detail /> : <Navigate to='/' />} />
+  
+          {/* Ruta de inicio de sesión */}
+          <Route path='/' element={<Form login={login} />} />
+  
+          {/* Ruta para la página 404 */}
+          <Route path='/404' element={<Error access = {access}/>} />
 
-      <Routes>
-
-        {/* Ruta de la página principal */}
-         { access ? 
-        
-      
-         }
-        <Route
-          path='/home'
-          element={access ? <Cards characters={characters} onClose={onClose} /> : <Navigate to='/' />}
-        />
-
-        {/* Ruta de la página "Acerca de" */}
-        <Route path='/about' element={access ? <About /> : <Navigate to='/' />} />
-
-        {/* Ruta de detalle de personaje */}
-        <Route path='/detail/:id' element={access ? <Detail /> : <Navigate to='/' />} />
-
-         {/* Ruta de inicio de sesión */}
-        <Route path='/' element={<Form login={login} />} />
-        
-        {/* Ruta para la página 404 */}
-        <Route path='/404' element={<Error />} />
-
-        {/* Ruta para cualquier otra página no encontrada */}
-        <Route path='*' element={<Navigate to='/404' />} />
-      </Routes>
-    </div>
-   );
-}
-
-export default App;
+          <Route path='*' element= {<Navigate to='/404' />} />
+        </Routes>
+        <Outlet />
+      </div>
+    );
+  }
+  
+  export default App;
+  
