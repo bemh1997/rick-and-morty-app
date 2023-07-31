@@ -1,36 +1,28 @@
-export const GET_DETAIL_CHARACTER = 'GET_DETAIL_CHARACTER';
-export const DELETE_CHARACTER = 'DELETE_CHARACTER';
+import axios from 'axios';
+
 export const ADD_FAVORITES = 'ADD_FAVORITES';
 export const DELETE_FAVORITE = 'DELETE_FAVORITE';
 
-export const getDetailCharacter = (id) => (dispatch) => {
-  fetch(`https://rickandmortyapi.com/api/character/${id}`)
-  .then((response)=>response.json)
-  .then((character)=>{
-    dispatch({
-      type: GET_DETAIL_CHARACTER,
-      payload:character,
-    });
-  });
-}
+export const addFav = (character) => {
+  const endpoint = 'http://localhost:3001/rickandmorty/fav';
+  return (dispatch) => {
+     axios.post(endpoint, character).then(({ data }) => {
+        return dispatch({
+           type: 'ADD_FAVORITES',
+           payload: data,
+        });
+     });
+  };
+};
 
-export const deleteCharacter = (id) =>{
-  return {
-    type: DELETE_CHARACTER,
-    payload: id,
-  }
-}
-
-export const addFavorites = (character) =>{
-  return {
-    type: ADD_FAVORITES,
-    payload: character,
-  }
-}
-
-export const deleteFavorite = (id)=>{
-  return{
-    type: DELETE_FAVORITE,
-    payload: id,
-  }
-}
+export const removeFav = (id) => {
+  const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
+  return (dispatch) => {
+     axios.delete(endpoint).then(({ data }) => {
+        return dispatch({
+           type: 'DELETE_FAVORITE',
+           payload: data,
+     });
+     });
+  };
+};

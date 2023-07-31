@@ -2,7 +2,7 @@ import style from './Card.module.css'
 import { Link } from "react-router-dom";
 // import { useLocation }from "react-router-dom"; 
 import {connect} from 'react-redux';
-import { addFavorites, deleteFavorite } from '../../redux/actions';
+import { addFav, removeFav } from '../../redux/actions';
 // import { useEffect, useSate, useState} from 'react';
 
 const styleSpecie = {
@@ -68,8 +68,8 @@ function Card(props) {//export default function Card(props) {
 
 const mapDispatchToProps = (dispatch) => {
    return {
-      addFavorites: (character)=> dispatch(addFavorites(character)),
-      deleteFavorite: (id) => dispatch((deleteFavorite(id)))
+      addFav: (character)=> dispatch(addFav(character)),
+      removeFav: (id) => dispatch((removeFav(id)))
    }
 }
 
