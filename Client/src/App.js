@@ -19,14 +19,28 @@ function App() {
    const navigate = useNavigate();
    const { pathname } = useLocation();
 
-   const login=(userData)=> {
-      const { email, password } = userData;
-      const URL = 'http://localhost:3001/rickandmorty/login';
-      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+   const login= async (userData)=> {
+      try{
+         const { email, password } = userData;
+         const URL = 'http://localhost:3001/rickandmorty/login';
+         const query = `?email=${email}&password=${password}` 
+         const { data } = await axios(URL + query);
          const { access } = data;
+
          setAccess( data );
          access && navigate('/home');
-      });
+      }catch(error){
+         return {
+            error: error.message,
+         }
+      }
+      // const { email, password } = userData;
+      // const URL = 'http://localhost:3001/rickandmorty/login';
+      // axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      //    const { access } = data;
+      //    setAccess( data );
+      //    access && navigate('/home');
+      // });
    }
 
    const logout = () => {
@@ -39,10 +53,11 @@ function App() {
          navigate('/')
    }, [access, pathname, navigate, ]);
    
-   const onSearch = (id) =>{
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then(({ data }) => {
-         const characterFind = characters.find((char) => char.id === Number(id))
+   const onSearch = async(id) =>{
+      try{
+         const endpoint = `http://localhost:3001/rickandmorty/character/${id}`
+         const { data } = await axios(endpoint);
+         const characterFind = characters.find((char) => char.id === Number(id));
          
          if(characterFind) {
             alert('Already in the list!')
@@ -51,11 +66,25 @@ function App() {
          else if(data.id !== undefined) {
             setCharacters((character) => [...character, data]);
          }
-      })
-
-      .catch((error)=> {
+      }catch (error) {
          alert('Try with another ID')
-      })
+      }
+      // axios(`http://localhost:3001/rickandmorty/character/${id}`)
+      // .then(({ data }) => {
+      //    const characterFind = characters.find((char) => char.id === Number(id))
+         
+      //    if(characterFind) {
+      //       alert('Already in the list!')
+      //    }
+
+      //    else if(data.id !== undefined) {
+      //       setCharacters((character) => [...character, data]);
+      //    }
+      // })
+
+      // .catch((error)=> {
+      //    alert('Try with another ID')
+      // })
    };
 
    
