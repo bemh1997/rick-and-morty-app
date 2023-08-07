@@ -12,6 +12,7 @@
   justify-content: center;
   box-shadow: inset 0 0 40px #39ff14;
   border: solid #39ff14 2px;
+  font-size: 9pt;
 }
 
 .divReturnBack {

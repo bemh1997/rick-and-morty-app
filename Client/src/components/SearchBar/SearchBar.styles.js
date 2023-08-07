@@ -12,7 +12,7 @@ export const SearchContainer = styled.div`
    font-size: 20px;
 `
 export const SearchInput = styled.input`
-   width: 60%;
+   width: 25%;
    padding: 12px 20px;
    border: 2px solid #61de2a;
    border-radius: 7px 0px 0px 7px;
@@ -24,8 +24,10 @@ export const SearchInput = styled.input`
    color: purple;
    font-size: 20px;
    margin-right: 0.5px;
+   transition: all 0.2s ease;
 
    &:hover{
+      width: 300px;
       background-color: #2f362f;
       color: #61de2a;
       scale: 1.1;

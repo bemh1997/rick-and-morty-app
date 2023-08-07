@@ -11,12 +11,19 @@ const About = ({access}) =>{
       </Link>
       <div className={style.divAbout}>
         <h2>About me</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat commodi, eaque veniam minima quae incidunt, quisquam illum esse earum, suscipit dolores laboriosam numquam amet. Cum veritatis temporibus vel necessitatibus perspiciatis?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto magni repellat veritatis, necessitatibus nulla tempora minus libero quia expedita dolores ut itaque ea a, doloribus, fugiat quae officia. Animi, consequuntur.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat commodi, eaque veniam minima quae incidunt, quisquam illum esse earum, suscipit dolores laboriosam numquam amet. Cum veritatis temporibus vel necessitatibus perspiciatis?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto magni repellat veritatis, necessitatibus nulla tempora minus libero quia expedita dolores ut itaque ea a, doloribus, fugiat quae officia. Animi, consequuntur.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat commodi, eaque veniam minima quae incidunt, quisquam illum esse earum, suscipit dolores laboriosam numquam amet. Cum veritatis temporibus vel necessitatibus perspiciatis?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto magni repellat veritatis, necessitatibus nulla tempora minus libero quia expedita dolores ut itaque ea a, doloribus, fugiat quae officia. Animi, consequuntur.</p>
+        <img src="https://media.licdn.com/dms/image/D5603AQFyLm_ZSdbnBA/profile-displayphoto-shrink_800_800/0/1683311564656?e=1697068800&v=beta&t=kbDyK7JoYFNivyApXvCCkw-hSQiRgJYh8acpcd8_QsY" alt="About.me" width="200px" height="200px"/>
+        <p>¡Hola! Soy Humberto Bernal, un apasionado estudiante de 25 años proveniente de ESCOM, IPN. Actualmente, me encuentro inmerso en el emocionante mundo del desarrollo web y formo parte del inspirador bootcamp de SoyHenry.com.</p>
+        <p>Mi viaje en el mundo de la tecnología ha sido fascinante, y a lo largo de mi trayectoria, he adquirido habilidades y conocimientos en diversas tecnologías fundamentales para la creación de sitios web modernos y funcionales. Entre las herramientas con las que trabajo destacan HTML5, CSS3, ReactJS, Node.js y Redux.</p>
+        <p>El trabajo en equipo y la colaboración son valores que considero fundamentales, y el bootcamp en SoyHenry.com me ha brindado la oportunidad de interactuar con personas talentosas y con ideas afines. Me entusiasma enfrentar desafíos complejos y encontrar soluciones innovadoras que impulsen el éxito de cada proyecto en el que me involucro.</p>
+        <p>Cuando no estoy ocupado programando, disfruto de dedicar tiempo a mis hobbies, como leer sobre tecnología y explorar nuevos conceptos en el mundo del diseño web. Además, siempre estoy dispuesto a participar en proyectos creativos que me permitan poner a prueba mis habilidades y expandir mi horizonte profesional.</p>
+        <p>Estoy emocionado de seguir aprendiendo y creciendo en el campo de la tecnología, y si tienes un proyecto o una idea interesante en mente, ¡estaré encantado de ser parte de ello!</p>
+        <p>¡Gracias por visitar mi página web y compartir este emocionante viaje tecnológico conmigo!</p>
+        <div className={style.divTecnologias}>
+          <img src="https://cdn-icons-png.flaticon.com/128/778/778531.png" alt="Tecnologia1" width="10%"/>
+          <img src="https://cdn-icons-png.flaticon.com/128/778/778533.png" alt="Tecnologia2" width="10%"/>
+          <img src='https://cdn-icons-png.flaticon.com/128/2340/2340047.png' alt='Tecnologia3' width="10%"/>
+          <img src="https://cdn-icons-png.flaticon.com/512/1183/1183672.png" alt="Tecnologia4" width="10%"/>
+        </div>      
       </div>
     </div>
   );
