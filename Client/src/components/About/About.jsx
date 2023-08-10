@@ -1,8 +1,7 @@
 import style from './About.module.css'
 import { Link } from 'react-router-dom';
 
-const About = ({access}) =>{
-  console.log(access)
+const About = () =>{
   return (
     <div >
       <Link className={style.divReturnBack} to='/home'>

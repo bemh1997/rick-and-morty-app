@@ -9,7 +9,9 @@
 
 .divCard {
   display: inline-block;
-  background-color: rgba( 72, 61, 139,0.5 );
+  background-image: url("https://www.pngitem.com/pimgs/m/519-5195253_kingsglass-green-portal-title-kingsglass-green-rick-and.png");
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 10px;
   color: white;
   overflow: hidden;
@@ -20,6 +22,10 @@
   align-items: center;
   justify-content: center;
   padding-bottom: 15px ;
+  transition: all 0.2s ease;;
+  &:hover{
+    scale: 1.05;
+  }
 }
 
 .divCard img {
@@ -30,9 +36,19 @@
   color: white;
 }
 
-.btn {
+.buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnfav{
+  padding-top: 3px;
+}
+
+.btn , .btnfav{
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: center;
   width: 50px;
   height: 30px;
@@ -44,7 +60,7 @@
   font-size: 20px;
   transition: all 0.2s ease;
   cursor: pointer;
-  color: purple; 
+  color: purple;
 
   &:hover {
       background-color: #2f362f;

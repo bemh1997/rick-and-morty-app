@@ -12,12 +12,18 @@ export default function NavBar(props){
   return(    
     <nav className={style.nav}>
         <div className={style.navButtons}>
+          <Link to="/favorites">
+            <button className={style.button}>Favorites</button>
+          </Link>
+          
+          <Link to="/about" >
+            <button className={style.button}>About</button>
+          </Link>
+          
           <Link to='/'>
             <button className={style.button} onClick={handleLogOut}>Log Out</button>
           </Link>
-          <Link to="/about" >
-            <span className={style.span}>About</span>
-          </Link>
+          
         </div>
 
         <Link to="/home" className={style.logo}>

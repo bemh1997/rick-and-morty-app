@@ -1,7 +1,9 @@
 .divDetail {
   display: flex;
   flex-direction: column;
-  background-color: rgba( 151, 206, 76, 0.7 );
+  background-image: url("https://www.pngitem.com/pimgs/m/519-5195253_kingsglass-green-portal-title-kingsglass-green-rick-and.png");
+  background-size: 120%;
+  background-position:center;
   border-radius: 10px;
   color: white;
   overflow: hidden;
@@ -33,7 +35,7 @@
 }
 
 .divInfo .class2{
-  color:rgb(232,154,199)
+  color:#44281d;
 }
 
 .divImg{

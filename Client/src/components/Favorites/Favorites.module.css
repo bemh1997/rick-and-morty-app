@@ -1,0 +1,65 @@
+.title {
+  color:rgb( 72, 61, 139);
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+}
+
+.select {
+  height: 51px;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border: 2px solid #61de2a;
+  border-radius: 15px;
+  box-shadow: 0px 0px 6px 1px #61de2a;
+  background-color: rgba(255, 255, 255);
+  padding: 10px 25px;
+  font-size: 20px;
+  transition: all 0.2s ease;
+  color: purple;
+
+  &:hover{
+    background-color: #2f362f;
+    color: #61de2a;
+  }
+}
+
+.divContain{
+  width: 99%;
+}
+
+.divReturnBack, .divContain {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border: 2px solid #61de2a;
+  border-radius: 15px;
+  box-shadow: 0px 0px 6px 1px #61de2a;
+  background-color: rgba(255, 255, 255);
+  margin-bottom: 10px;
+  padding: 10px 25px;
+  font-size: 20px;
+  transition: all 0.2s ease;
+  color: purple;
+
+  &:hover{
+    background-color: #2f362f;
+    color: #61de2a;
+  }
+}
+
+.divReturnBack{
+  cursor: pointer;
+}
+
+.arrow{
+  height: 20px;
+  margin: 0 0 0 20px;
+  transition: all .4s cubic-bezier(.28,1.1,1,1);
+  width: 20px;
+}

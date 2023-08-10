@@ -2,6 +2,7 @@ import './App.css';
 import About from './components/About/About'
 import Cards from './components/Cards/Cards.jsx';
 import Detail from './components/Detail/Detail'
+import Favorites from './components/Favorites/Favortites'
 import Form from './components/Form/Form'
 import Error from './components/Error/Error'
 import NavBar from './components/NavBar/NavBar';
@@ -98,9 +99,9 @@ function App() {
 
    return (
       <div className='App'>
-         {(access && (pathname.includes('/home') ||
-            pathname.includes('/about') ||
-            pathname.includes('/detail')
+         {(access && 
+            !(pathname.includes('/login') && 
+            !(pathname.includes('/404')) 
          ) ) && (
             <NavBar onSearch={onSearch} random={randomHandler} logout={logout} />
          )}
@@ -111,8 +112,13 @@ function App() {
             path='/home'
             element={access ? <Cards characters={characters} onClose={onClose} /> : <Navigate to='/' />}
             />
+         {/* Ruta de la página "Favortitos" */}
+            <Route 
+               path='/favorites'
+               element={ access? <Favorites />:<Navigate to='/' />}
+            />
          {/* Ruta de la página "Acerca de" */}
-            <Route path='/about' element={access ? <About access = {access}/> : <Navigate to='/' />} />
+            <Route path='/about' element={access ? <About /> : <Navigate to='/' />} />
          {/* Ruta de detalle de personaje */}
             <Route path='/detail/:id' element={access ? <Detail /> : <Navigate to='/' />} />
          {/* Ruta de inicio de sesión */}

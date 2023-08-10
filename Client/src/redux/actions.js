@@ -2,6 +2,8 @@ import axios from 'axios';
 
 export const ADD_FAVORITES = 'ADD_FAVORITES';
 export const DELETE_FAVORITE = 'DELETE_FAVORITE';
+export const FILTER = 'FILTER'
+export const ORDER = 'ORDER'
 
 export const addFav = (character) => {
    const endpoint = 'http://localhost:3001/rickandmorty/fav';
@@ -36,3 +38,17 @@ export const addFav = (character) => {
      }
    };
  };
+
+ export const filter = (gender) => {
+  return {
+      type: FILTER,
+      payload: gender
+  }
+}
+
+export const order = (id)=> {
+  return {
+      type: ORDER,
+      payload: id
+  }
+}
